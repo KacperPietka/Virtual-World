@@ -1,4 +1,4 @@
-Virtual game of world where every sign represents different organism (H is human which is controlled by arrows). Every animal movement is random and all plants are static. Plants are spreading with 1% chance (different for sow thistle) and animals can spread when two there is a collision of two the same species.
+Virtual game of world where every sign represents different organism (H is human which is controlled by arrows). Every animal movement is random and all plants are static. Plants are spreading with 1% chance (different for sow thistle) and animals can spread when two there is a collision of two the same species. Game also allows to LOAD ('l') a map from a file and SAVE ('s') a map to a file (see 'map.txt').
 
 Example of a map:
 
