@@ -8,7 +8,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class SwingApp extends JFrame{
+public class SwingApp extends JFrame {
     private static final int GRID_SIZE = 30;
     private JPanel gridPanel;
     private Human human;
@@ -31,6 +31,37 @@ public class SwingApp extends JFrame{
         setLocationRelativeTo(null);
     }
 
+
+    private Color getOrganismColor(char sign) {
+        switch (sign) {
+            case '^':
+                return Color.ORANGE; // Fox
+            case '*':
+                return Color.WHITE; // Sheep
+            case '#':
+                return Color.GREEN; // Grass
+            case '!':
+                return Color.GRAY; // Wolf
+            case 'S':
+                return Color.CYAN; // Sosnowsky
+            case '%':
+                return Color.YELLOW; // Sow_Thistle
+            case '?':
+                return Color.BLUE; // Turtle
+            case 'B':
+                return Color.RED; // Belladonna
+            case '@':
+                return Color.PINK; // Antelope
+            case 'H':
+                return Color.MAGENTA; // Human
+            case 'G':
+                return Color.DARK_GRAY; // Guarana
+            default:
+                return Color.GRAY; // Default color
+        }
+    }
+
+
     private void initializeGrid() {
         gridPanel.removeAll();
         for (int i = 0; i < GRID_SIZE; i++) {
@@ -40,6 +71,7 @@ public class SwingApp extends JFrame{
                 for (Organisms organism : World.organismsVector) {
                     if (organism.getX() == i && organism.getY() == j && organism.getStrength() > -1 && organism.getInitiative() > -1) {
                         JButton button = new JButton(String.valueOf(organism.getSign()));
+                        button.setBackground(getOrganismColor(organism.getSign()));
                         cellPanel.add(button, BorderLayout.SOUTH);
                         organismFound = true;
                         break;
@@ -136,7 +168,6 @@ public class SwingApp extends JFrame{
 
     public static void main(String[] args) {
         World.SpawnOrganisms();
-
         SwingUtilities.invokeLater(() -> {
             SwingApp app = new SwingApp();
             app.setVisible(true);
