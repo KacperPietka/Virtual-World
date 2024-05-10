@@ -120,9 +120,6 @@ public class SwingApp extends JFrame{
                         organism = null;
                         break;
                 }
-                if (organism != null) {
-                    World.addOrganism(organism);
-                }
             }
 
             JOptionPane.showMessageDialog(null, "Map loaded successfully!");
